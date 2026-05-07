@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buyer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h2>Available Lands</h2></header>
+
+<div class="container" id="lands">
+  <button onclick="requestTransfer('${l._id}')">Buy</button>
+
+</div>
+
+<script>
+loadLands();
+
+async function loadLands() {
+  const res = await fetch("http://localhost:5000/api/lands");
+  const lands = await res.json();
+
+  const div = document.getElementById("lands");
+
+  lands.forEach(l => {
+    div.innerHTML+= `
+ 
+      <div class="card">
+        <img src="http://localhost:5000/uploads/${l.landImage}" width="200"/>
+        <p>${l.location.region}</p>
+
+        <iframe
+          width="300"
+          height="200"
+          src="https://www.google.com/maps?q=${l.location.latitude},${l.location.longitude}&output=embed">
+        </iframe>
+      </div>
+    `;
+  });
+}
+</script>
+
+</body>
+</html>

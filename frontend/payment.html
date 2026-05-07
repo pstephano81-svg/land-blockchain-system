@@ -1,0 +1,17 @@
+<h2>Make Payment</h2>
+
+<div id="details"></div>
+
+<select id="method">
+  <option value="mpesa">M-Pesa</option>
+  <option value="halopesa">HaloPesa</option>
+  <option value="crdb">CRDB</option>
+</select>
+
+<input type="number" id="amount" placeholder="Amount">
+
+<input type="file" id="screenshot">
+
+<button onclick="makePayment()">Submit Payment</button>
+
+<script src="payment.js"></script>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<div class="container">
+
+  <!-- USERS -->
+  <div class="card">
+    <h2>All Users</h2>
+    <button onclick="loadUsers()">Load Users</button>
+    <div id="users"></div>
+  </div>
+
+  <!-- LANDS -->
+  <div class="card">
+    <h2>All Lands</h2>
+    <button onclick="loadLands()">Load Lands</button>
+    <div id="lands"></div>
+  </div>
+
+  <!-- VERIFICATION -->
+  <div class="card">
+    <h2>Pending Verification</h2>
+    <button onclick="loadPending()">Load Pending</button>
+    <div id="pending"></div>
+  </div>
+
+  <!-- TRANSFERS -->
+  <div class="card">
+    <h2>Land Transfers</h2>
+    <button onclick="loadTransfers()">Load Transfers</button>
+    <div id="transfers"></div>
+  </div>
+
+  <!-- APPROVE TRANSFERS -->
+  <div class="card">
+    <h2>Transfer Requests (Approve)</h2>
+    <button onclick="loadTransferRequests()">Load Requests</button>
+    <div id="transferRequests"></div>
+  </div>
+
+  <!-- UPLOAD TITLE DEEDS -->
+  <div class="card">
+    <h2>Upload Title Deeds</h2>
+    <button onclick="loadUploadRequests()">Load Uploads</button>
+    <div id="uploads"></div>
+  </div>
+
+  <!-- LOST TITLE REPORTS -->
+  <div class="card">
+    <h2>Lost Title Deed Reports</h2>
+    <button onclick="loadLostReports()">Load Reports</button>
+    <div id="lost"></div>
+  </div>
+
+</div>
+<div class="card">
+  <h2>Generate Title Deed</h2>
+
+  <button onclick="generateTitleDeed()">Generate QR</button>
+
+  <div id="qrResult"></div>
+</div>
+</body>
+</html>

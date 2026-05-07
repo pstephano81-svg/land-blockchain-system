@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Officer Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h2>Land Officer </h2></header>
+
+<div class="container" id="lands"></div>
+
+<script src="app.js"></script>
+<script>
+loadLands();
+
+async function loadLands() {
+  const res = await fetch("http://localhost:5000/api/lands");
+  const lands = await res.json();
+
+  const div = document.getElementById("lands");
+
+  lands.forEach(l => {
+    div.innerHTML += `
+      <div class="card">
+        <p>${l.location.region}</p>
+        <button onclick="verify('${l._id}')">Verify</button>
+      </div>
+    `;
+  });
+}
+
+async function verify(id) {
+  await fetch("http://localhost:5000/api/verify/" + id, {method:"POST"});
+  alert("Verified");
+}
+</script>
+
+</body>
+</html>
