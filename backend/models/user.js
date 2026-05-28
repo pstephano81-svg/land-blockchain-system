@@ -2,9 +2,7 @@
 
 const userSchema = new mongoose.Schema({
   name: String,
-  email: String,
   phone: String,
-  role: String, // owner, officer, buyer
   image: String,
   region: String,
   district: String,
@@ -12,7 +10,19 @@ const userSchema = new mongoose.Schema({
   mpesa: String,
   halopesa: String,
   crdb: String,
-  other: String
+  other: String,
+  email: {
+    type:String,
+    unique:true
+  },
+
+  role: {
+    type:String, 
+    enum:["owner","buyer","officer","admin"],// owner, officer, buyer
+    default:"owner"
+  }
+
+  
 
 });
 module.exports = mongoose.model("User", userSchema);
